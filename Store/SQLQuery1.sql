@@ -12,11 +12,12 @@ CREATE TABLE Products(
 [Name] NVARCHAR(30) NOT NULL,
 [Quantity] INT CHECK([Quantity]>0) NOT NULL DEFAULT(0),
 [Price] MONEY CHECK([Price]>0) NOT NULL,
-[CategoryId] INT FOREIGN KEY REFERENCES Categories(Id) NOT NULL
+[CategoryId] INT FOREIGN KEY REFERENCES Categories(Id) ON DELETE SET DEFAULT DEFAULT(6),
+[ImagePath] NVARCHAR(MAX) NOT NULL
 )
 GO
 INSERT INTO Categories([Name])
-VALUES ('Flour products'),('Drinks'),('Desserts'),('Milk products'),('Meat products')
+VALUES ('Flour products'),('Drinks'),('Desserts'),('Milk products'),('Meat products'),('Other')
 GO
 INSERT INTO Products([CategoryId],[Name],[Price],[Quantity])
 VALUES (1,'Bread',0.7,50),
