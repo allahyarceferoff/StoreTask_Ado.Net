@@ -110,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Logo.jpg" />
-    <Content Include="SQLQuery1.sql" />
+    <Content Include="StoreDB.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

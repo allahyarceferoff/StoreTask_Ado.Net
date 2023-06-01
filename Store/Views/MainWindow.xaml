@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Store"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="560" Width="950"
         >
     <Canvas>
         <Image Source="\Images\Logo.jpg" Canvas.Left="23" Canvas.Top="25" Height="50" Width="176" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
-        
+
     </Canvas>
 </Window>
