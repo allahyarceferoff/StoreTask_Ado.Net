@@ -36,17 +36,20 @@ namespace Store.Repostiory
                         {
                             Id = int.Parse(reader[0].ToString()),
                             Name = reader[1].ToString(),
-
+                            Quantity = int.Parse(reader[2].ToString()),
+                            Price = decimal.Parse(reader[3].ToString()),
+                            CategoryId= int.Parse(reader[4].ToString()),
+                            ImagePath= reader[5].ToString(),
                         };
-                        
+                        _products.Add(product);                       
                     }
                 }
             }
         }
 
-        public ObservableCollection<Author> GetAll()
+        public ObservableCollection<Product> GetAll()
         {
-            return _authors;
+            return _products;
         }
 
         public void Insert(int id, string firstName, string lastName)
@@ -83,13 +86,13 @@ namespace Store.Repostiory
 
                     var result = command.ExecuteNonQuery();
                 }
-                Author author = new Author
-                {
-                    Id = id,
-                    FirstName = firstName,
-                    LastName = lastName
-                };
-                _authors.Add(author);
+                //Author author = new Author
+                //{
+                //    Id = id,
+                //    FirstName = firstName,
+                //    LastName = lastName
+                //};
+                //_authors.Add(author);
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Store
 {
@@ -13,5 +14,7 @@ namespace Store
     /// </summary>
     public partial class App : Application
     {
+        public static WrapPanel MyGrid { get; set; }=new WrapPanel();
+
     }
 }

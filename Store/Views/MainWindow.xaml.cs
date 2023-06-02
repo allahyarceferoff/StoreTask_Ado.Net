@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.ViewModels.WindowsViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace Store
         public MainWindow()
         {
             InitializeComponent();
+            App.MyGrid = MyGrid1;
+            var vm = new MainViewModel();
+            this.DataContext = vm;
         }
     }
 }

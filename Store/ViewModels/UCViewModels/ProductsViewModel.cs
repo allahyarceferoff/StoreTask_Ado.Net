@@ -40,13 +40,5 @@ namespace Store.ViewModels.UCViewModels
 			get { return imagePath; }
 			set { imagePath = value; OnPropertyChanged(); }
 		}
-
-		public ProductsViewModel()
-		{
-			
-		}
-
-
-
 	}
 }

@@ -63,8 +63,9 @@
     <Compile Include="Repostiory\Repo.cs" />
     <Compile Include="ViewModels\BaseViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\UCViewModels\ProductsViewModel.cs" />
-    <Compile Include="Views\UserControls\Products.xaml.cs">
-      <DependentUpon>Products.xaml</DependentUpon>
+    <Compile Include="ViewModels\WindowsViewModels\MainViewModel.cs" />
+    <Compile Include="Views\UserControls\ProductsUC.xaml.cs">
+      <DependentUpon>ProductsUC.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,7 +79,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\UserControls\Products.xaml">
+    <Page Include="Views\UserControls\ProductsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,9 +110,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\WindowsViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Logo.jpg" />
     <Content Include="StoreDB.sql" />

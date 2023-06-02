@@ -9,6 +9,8 @@
         >
     <Canvas>
         <Image Source="\Images\Logo.jpg" Canvas.Left="23" Canvas.Top="25" Height="50" Width="176" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
-
+        <WrapPanel Name="MyGrid1" Height="455" Width="785" Canvas.Left="23" Canvas.Top="79" HorizontalAlignment="Left" VerticalAlignment="Center">
+            
+        </WrapPanel>
     </Canvas>
 </Window>
