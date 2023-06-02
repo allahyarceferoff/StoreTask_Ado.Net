@@ -41,7 +41,7 @@ namespace Store.ViewModels.WindowsViewModels
                 productsViewModel.ProductPrice = AllProducts[i].Price;
                 productsViewModel.ProductQuantity = AllProducts[i].Quantity;
                 productsViewModel.ImagePath = AllProducts[i].ImagePath;
-                //productUC.Margin = new Thickness(left, up, right, down);
+                productUC.Margin = new Thickness(10);
                 productUC.DataContext = productsViewModel;
                 App.MyGrid.Children.Add(productUC);
             }
