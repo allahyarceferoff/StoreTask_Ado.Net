@@ -9,9 +9,9 @@
         <Border Background="Wheat" CornerRadius="20"></Border>
         <Canvas Margin="28,24,28,30">
             <Border CornerRadius="20" Background="White" Height="446" Width="364" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Image Source="https://res.cloudinary.com/dljzepmxr/image/upload/v1685625622/Baliq_jsodku.jpg" Height="223" Width="295" Canvas.Left="37" Canvas.Top="21" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
-            <Label Content="Fish" FontSize="70" Canvas.Left="22" Canvas.Top="211" Height="89" Width="276" HorizontalAlignment="Center" VerticalAlignment="Top" ></Label>
-            <Label Content="10,95" FontSize="50" Canvas.Left="181" Canvas.Top="321" Height="77" Width="133" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+            <Image Source="{Binding ImagePath}" Height="223" Width="295" Canvas.Left="37" Canvas.Top="21" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
+            <Label Content="{Binding ProductName}" FontSize="70" Canvas.Left="22" Canvas.Top="211" Height="89" Width="276" HorizontalAlignment="Center" VerticalAlignment="Top" ></Label>
+            <Label Content="{Binding ProductPrice}" FontSize="50" Canvas.Left="181" Canvas.Top="321" Height="77" Width="133" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
         </Canvas>
     </Grid>
 </UserControl>

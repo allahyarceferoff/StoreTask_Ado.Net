@@ -13,7 +13,7 @@ CREATE TABLE Products(
 [Quantity] INT CHECK([Quantity]>0) NOT NULL DEFAULT(0),
 [Price] MONEY CHECK([Price]>0) NOT NULL,
 [CategoryId] INT FOREIGN KEY REFERENCES Categories(Id) ON DELETE SET DEFAULT DEFAULT(1),
-[ImagePath] NVARCHAR(MAX) NOT NULL
+[ImagePath] NVARCHAR(MAX) NOT NULL DEFAULT('https://res.cloudinary.com/dljzepmxr/image/upload/v1685702588/No_imagve_xwmo1u.jpg')
 )
 GO
 INSERT INTO Categories([Name])
