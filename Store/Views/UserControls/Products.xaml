@@ -12,6 +12,7 @@
             <Image Source="{Binding ImagePath}" Height="223" Width="295" Canvas.Left="37" Canvas.Top="21" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
             <Label Content="{Binding ProductName}" FontSize="70" Canvas.Left="22" Canvas.Top="211" Height="89" Width="276" HorizontalAlignment="Center" VerticalAlignment="Top" ></Label>
             <Label Content="{Binding ProductPrice}" FontSize="50" Canvas.Left="181" Canvas.Top="321" Height="77" Width="133" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+            <Label Content="{Binding ProductQuantity}" FontSize="16" Canvas.Left="22" Canvas.Top="398" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
         </Canvas>
     </Grid>
 </UserControl>
