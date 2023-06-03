@@ -40,6 +40,8 @@ namespace Store.ViewModels.WindowsViewModels
             ProductsRepo = new Repo();
             AllProducts = ProductsRepo.GetAllProduct();
 
+            AllCategories = ProductsRepo.GetAllCategories();
+
             ProductUC productUC;
             ProductsViewModel productsViewModel;
             for (int i = 0; i < AllProducts.Count; i++)
@@ -54,6 +56,19 @@ namespace Store.ViewModels.WindowsViewModels
                 productUC.DataContext = productsViewModel;
                 App.MyGrid.Children.Add(productUC);
             }
+
+            CategoriesUC categoriesUC;
+            CategoryUcViewModel categoryUcViewModel;
+            for (int i = 0; i < AllCategories.Count; i++)
+            {
+                categoriesUC = new CategoriesUC();
+                categoryUcViewModel = new CategoryUcViewModel();
+                categoryUcViewModel.CategoryName= AllCategories[i].Name;
+                categoriesUC.Margin=new Thickness(10,10,10,0);
+                categoriesUC.DataContext = categoryUcViewModel;
+                App.MyWrapPanel.Children.Add(categoriesUC);
+            }
+
 
         }
     }

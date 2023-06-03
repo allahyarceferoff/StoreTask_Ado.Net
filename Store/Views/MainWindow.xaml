@@ -5,23 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Store"
         mc:Ignorable="d"
-        Title="MainWindow" Height="560" Width="962"
+        Title="MainWindow" Height="560" Width="1014"
         >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="195"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <Image Source="\Images\Logo.jpg" Margin="28,12,2,0"></Image>
 
-        <ScrollViewer Grid.Row="1" Margin="0,0,160,0" >
-
-            <WrapPanel  Name="MyGrid1">
-
-            </WrapPanel>
-
+        <ScrollViewer Grid.Row="1" Margin="0,0,3,0" >
+            <WrapPanel  Name="MyGrid1"></WrapPanel>
         </ScrollViewer>
-
+        <Label  Grid.Row="1" Content="Categories" FontSize="20" Margin="0,0,0,0" Grid.Column="1"></Label>
+        <WrapPanel Name="MyWrapPanel1" Grid.Row="1" Margin="2,35,0,0" Orientation="Vertical" Grid.Column="1"/>
 
     </Grid>
 </Window>

@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Store.Views.UserControls"
-             mc:Ignorable="d" Height="25" Width="135">
+             mc:Ignorable="d" Height="25" Width="158">
     <Grid>
-        <RadioButton  Content="{Binding CategoryName}" Foreground="WhiteSmoke" FontSize="20">
+        <RadioButton  Content="{Binding CategoryName}" GroupName="Sex" Foreground="Black" FontSize="20" Margin="0,0,-17,0">
 
         </RadioButton>
     </Grid>
