@@ -14,6 +14,7 @@ namespace Store.Repostiory
     public class Repo
     {
         ObservableCollection<Product> _products = new ObservableCollection<Product>();
+        ObservableCollection<Category> _categories = new ObservableCollection<Category>();
         SqlConnection conn;
         string cs = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
 
@@ -38,18 +39,46 @@ namespace Store.Repostiory
                             Name = reader[1].ToString(),
                             Quantity = int.Parse(reader[2].ToString()),
                             Price = decimal.Parse(reader[3].ToString()),
-                            CategoryId= int.Parse(reader[4].ToString()),
-                            ImagePath= reader[5].ToString(),
+                            CategoryId = int.Parse(reader[4].ToString()),
+                            ImagePath = reader[5].ToString(),
                         };
-                        _products.Add(product);                       
+                        _products.Add(product);
+                    }
+                }
+            }
+
+            using (conn = new SqlConnection())
+            {
+                conn.ConnectionString = cs;
+                conn.Open();
+
+                SqlDataReader reader = null;
+
+                string query = "SELECT * FROM Categories";
+                using (var command = new SqlCommand(query, conn))
+                {
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Category category = new Category
+                        {
+                            Id=int.Parse(reader[0].ToString()),
+                            Name=reader[1].ToString(),
+                        };
+                        _categories.Add(category);
                     }
                 }
             }
         }
 
-        public ObservableCollection<Product> GetAll()
+        public ObservableCollection<Product> GetAllProduct()
         {
             return _products;
+        }
+
+        public ObservableCollection<Category> GetAllCategories()
+        {
+            return _categories;
         }
 
         public void Insert(int id, string firstName, string lastName)

@@ -23,13 +23,22 @@ namespace Store.ViewModels.WindowsViewModels
             set { allProducts = value; }
         }
 
+        private ObservableCollection<Category> allCategories;
+
+        public ObservableCollection<Category> AllCategories
+        {
+            get { return allCategories; }
+            set { allCategories = value; }
+        }
+
+
         public Repo ProductsRepo { get; set; }
 
 
         public MainViewModel()
         {
             ProductsRepo = new Repo();
-            AllProducts = ProductsRepo.GetAll();
+            AllProducts = ProductsRepo.GetAllProduct();
 
             ProductUC productUC;
             ProductsViewModel productsViewModel;
@@ -38,7 +47,7 @@ namespace Store.ViewModels.WindowsViewModels
                 productUC = new ProductUC();
                 productsViewModel = new ProductsViewModel();
                 productsViewModel.ProductName = AllProducts[i].Name;
-                productsViewModel.ProductPrice = AllProducts[i].Price;
+                productsViewModel.ProductPrice = $"{AllProducts[i].Price} $";
                 productsViewModel.ProductQuantity = AllProducts[i].Quantity;
                 productsViewModel.ImagePath = AllProducts[i].ImagePath;
                 productUC.Margin = new Thickness(10);

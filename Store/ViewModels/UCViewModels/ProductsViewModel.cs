@@ -25,9 +25,9 @@ namespace Store.ViewModels.UCViewModels
 			set { productQuantity = value; OnPropertyChanged(); }
 		}
 
-		private decimal productPrice;
+		private string productPrice;
 
-		public decimal ProductPrice
+		public string ProductPrice
         {
 			get { return productPrice; }
 			set { productPrice = value; OnPropertyChanged(); }

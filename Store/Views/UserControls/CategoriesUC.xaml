@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Store.Views.UserControls.CategoriesUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Store.Views.UserControls"
+             mc:Ignorable="d" Height="25" Width="135">
+    <Grid>
+        <RadioButton  Content="{Binding CategoryName}" Foreground="WhiteSmoke" FontSize="20">
+
+        </RadioButton>
+    </Grid>
+</UserControl>
