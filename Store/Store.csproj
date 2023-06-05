@@ -68,6 +68,9 @@
     <Compile Include="Views\UserControls\CategoriesUC.xaml.cs">
       <DependentUpon>CategoriesUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\InsertUserControl.xaml.cs">
+      <DependentUpon>InsertUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\ProductsUC.xaml.cs">
       <DependentUpon>ProductsUC.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\UserControls\CategoriesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\InsertUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,11 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Store.Views.UserControls;
+using Store.Commands;
 
 namespace Store.ViewModels.WindowsViewModels
 {
     public class MainViewModel : BaseViewModels
     {
+        public RelayCommand InsertCommand { get; set; }
+
         private ObservableCollection<Product> allProducts;
 
         public ObservableCollection<Product> AllProducts
@@ -52,7 +55,6 @@ namespace Store.ViewModels.WindowsViewModels
                 productsViewModel.ProductPrice = $"{AllProducts[i].Price} $";
                 productsViewModel.ProductQuantity = AllProducts[i].Quantity;
                 productsViewModel.ImagePath = AllProducts[i].ImagePath;
-                productUC.Margin = new Thickness(10);
                 productUC.DataContext = productsViewModel;
                 App.MyGrid.Children.Add(productUC);
             }
@@ -64,11 +66,14 @@ namespace Store.ViewModels.WindowsViewModels
                 categoriesUC = new CategoriesUC();
                 categoryUcViewModel = new CategoryUcViewModel();
                 categoryUcViewModel.CategoryName= AllCategories[i].Name;
-                categoriesUC.Margin=new Thickness(10,10,10,0);
                 categoriesUC.DataContext = categoryUcViewModel;
                 App.MyWrapPanel.Children.Add(categoriesUC);
             }
 
+            InsertCommand = new RelayCommand((obj) =>
+            {
+
+            });
 
         }
     }

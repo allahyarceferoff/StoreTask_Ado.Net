@@ -17,7 +17,8 @@
             <ColumnDefinition Width="195"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Image Source="\Images\Logo.jpg" Margin="28,12,2,0"></Image>
-
+        <Button Command="{Binding InsertCommand}" Grid.Column="1" Margin="49,37,50,15" Content="Insert" FontSize="19" FontFamily="MS Gothic" Background="White" BorderThickness="0"></Button>
+        
         <ScrollViewer Grid.Row="1" Margin="0,0,3,0" >
             <WrapPanel  Name="MyGrid1"></WrapPanel>
         </ScrollViewer>
