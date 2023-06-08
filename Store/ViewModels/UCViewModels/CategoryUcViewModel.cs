@@ -25,6 +25,5 @@ namespace Store.ViewModels.UCViewModels
 			set { categoryName = value; OnPropertyChanged(); }
 		}
 
-
 	}
 }

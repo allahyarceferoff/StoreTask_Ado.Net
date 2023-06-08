@@ -63,6 +63,7 @@
     <Compile Include="Repostiory\Repo.cs" />
     <Compile Include="ViewModels\BaseViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\UCViewModels\CategoryUcViewModel.cs" />
+    <Compile Include="ViewModels\UCViewModels\InsertUCViewModel.cs" />
     <Compile Include="ViewModels\UCViewModels\ProductsViewModel.cs" />
     <Compile Include="ViewModels\WindowsViewModels\MainViewModel.cs" />
     <Compile Include="Views\UserControls\CategoriesUC.xaml.cs">

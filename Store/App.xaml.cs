@@ -16,6 +16,5 @@ namespace Store
     {
         public static WrapPanel MyGrid { get; set; } = new WrapPanel();
         public static WrapPanel MyWrapPanel { get; set; } = new WrapPanel();
-
     }
 }

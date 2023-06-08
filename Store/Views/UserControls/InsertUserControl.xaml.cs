@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Store.ViewModels.UCViewModels;
+using Store.ViewModels.WindowsViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,8 @@ namespace Store.Views.UserControls
         public InsertUserControl()
         {
             InitializeComponent();
+            var vm = new InsertUCViewModel();
+            this.DataContext = vm;
         }
     }
 }

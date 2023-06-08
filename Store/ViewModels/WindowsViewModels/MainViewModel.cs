@@ -37,14 +37,38 @@ namespace Store.ViewModels.WindowsViewModels
 
         public Repo ProductsRepo { get; set; }
 
-
-        public MainViewModel()
+        public async Task GetAllCategories()
         {
-            ProductsRepo = new Repo();
-            AllProducts = ProductsRepo.GetAllProduct();
+            await ProductsRepo.GetAllCategories(AllCategories);
+        }
 
-            AllCategories = ProductsRepo.GetAllCategories();
+        public async Task GetAllProducts()
+        {
+            await ProductsRepo.GetAllProduct(AllProducts);
+        }
 
+        public async void CallCategoryUC()
+        {
+            await GetAllCategories();
+
+            App.MyWrapPanel.Children.Clear();
+            CategoriesUC categoriesUC;
+            CategoryUcViewModel categoryUcViewModel;
+            for (int i = 0; i < AllCategories.Count; i++)
+            {
+                categoriesUC = new CategoriesUC();
+                categoryUcViewModel = new CategoryUcViewModel();
+                categoryUcViewModel.CategoryName = AllCategories[i].Name;
+                categoriesUC.DataContext = categoryUcViewModel;
+                App.MyWrapPanel.Children.Add(categoriesUC);
+            }
+        }
+
+        public async void CallProductUC()
+        {
+            await GetAllProducts();
+
+            App.MyGrid.Children.Clear();
             ProductUC productUC;
             ProductsViewModel productsViewModel;
             for (int i = 0; i < AllProducts.Count; i++)
@@ -58,21 +82,23 @@ namespace Store.ViewModels.WindowsViewModels
                 productUC.DataContext = productsViewModel;
                 App.MyGrid.Children.Add(productUC);
             }
+        }
 
-            CategoriesUC categoriesUC;
-            CategoryUcViewModel categoryUcViewModel;
-            for (int i = 0; i < AllCategories.Count; i++)
-            {
-                categoriesUC = new CategoriesUC();
-                categoryUcViewModel = new CategoryUcViewModel();
-                categoryUcViewModel.CategoryName= AllCategories[i].Name;
-                categoriesUC.DataContext = categoryUcViewModel;
-                App.MyWrapPanel.Children.Add(categoriesUC);
-            }
+        public MainViewModel()
+        {
+            AllProducts = new ObservableCollection<Product>();
+            AllCategories = new ObservableCollection<Category>();
+            ProductsRepo = new Repo();
+
+            CallProductUC();
+            CallCategoryUC();
 
             InsertCommand = new RelayCommand((obj) =>
             {
-
+                InsertUserControl insertUC = new InsertUserControl();
+                InsertUCViewModel insertUCVM = new InsertUCViewModel();
+                App.MyGrid.Children.Clear();
+                App.MyGrid.Children.Add(insertUC);
             });
 
         }

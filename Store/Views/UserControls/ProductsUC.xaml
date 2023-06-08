@@ -10,7 +10,7 @@
         <Canvas  Margin="19,23,19,19">
             <Border Background="White" CornerRadius="15" Height="255" Width="168"></Border>
             <Image Source="{Binding ImagePath}" Height="109" Width="140" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="14" Canvas.Top="10"/>
-            <Label FontSize="25" Content="{Binding ProductName}" Canvas.Left="14" Canvas.Top="128" HorizontalAlignment="Left" VerticalAlignment="Center" Width="86" Height="46" ></Label>
+            <Label FontSize="25" Content="{Binding ProductName}" Canvas.Left="14" Canvas.Top="128" HorizontalAlignment="Left" VerticalAlignment="Center" Width="114" Height="46" ></Label>
             <Label FontSize="20" Content="{Binding ProductPrice}" Canvas.Left="105" Canvas.Top="175" HorizontalAlignment="Left" VerticalAlignment="Center" Width="47" Height="32" ></Label>
             <Label FontSize="15" Content="{Binding ProductQuantity}" Canvas.Left="73" Canvas.Top="220" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="26" ></Label>
             <Label FontSize="10" Content="Count :" Canvas.Left="38" Canvas.Top="224" HorizontalAlignment="Center" VerticalAlignment="Top" Width="46" Height="21" ></Label>
