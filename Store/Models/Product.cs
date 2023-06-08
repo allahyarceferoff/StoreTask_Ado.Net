@@ -14,5 +14,10 @@ namespace Store.Models
         public decimal Price { get; set; }
         public string ImagePath { get; set; }
         public int CategoryId { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

@@ -53,23 +53,28 @@ namespace Store.ViewModels.UCViewModels
             set { pQuantity = value; OnPropertyChanged(); }
         }
 
+        private Category selectedItem;
 
-        public async Task GetAllCategories()
+        public Category SelectedItem
         {
+            get { return selectedItem; }
+            set { selectedItem = value; OnPropertyChanged(); }
+        }
+
+        public async void GetAllCategories()
+        {
+            AllCategory = new ObservableCollection<Category>();
             await ProductsRepo.GetAllCategories(AllCategory);
         }
 
-
         public InsertUCViewModel()
-        {
-            
+        {    
             ProductsRepo = new Repo();
             GetAllCategories();
 
             InsertCommand = new RelayCommand((obj) =>
-            {
-                
-                ProductsRepo.Insert(PName, PPrice, PQuantity);
+            {               
+                ProductsRepo.Insert(PName, PPrice, PQuantity,SelectedItem);
 
                 MessageBox.Show($"{pName} added successfully","Product Added",MessageBoxButton.OK,MessageBoxImage.Information);
 
@@ -77,14 +82,15 @@ namespace Store.ViewModels.UCViewModels
                 PPrice = 0;
                 PQuantity = 0;
 
-
             });
 
             BackCommand = new RelayCommand((obj) =>
             {
-                var vm = new MainViewModel();
-                
+                var vm = new MainViewModel();                
             });
+
+
+
         }
     }
 }

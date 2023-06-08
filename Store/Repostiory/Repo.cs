@@ -9,20 +9,17 @@ using System.Threading.Tasks;
 using Store.Models;
 using System.Configuration;
 using Store.Views.UserControls;
+using System.Windows;
 
 namespace Store.Repostiory
 {
     public class Repo
     {
-        ObservableCollection<Category> _categories = new ObservableCollection<Category>();
-        SqlConnection conn;
         string cs = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
-
-
 
         public Repo()
         {
-            
+
         }
 
         public async Task GetAllProduct(ObservableCollection<Product> _products)
@@ -33,7 +30,7 @@ namespace Store.Repostiory
                 conn.Open();
 
                 var query = "SELECT * FROM Products";
-                 
+
                 SqlCommand command = conn.CreateCommand();
                 command.CommandText = query;
 
@@ -85,18 +82,62 @@ namespace Store.Repostiory
             }
         }
 
-        public async void Insert(string name, decimal price, int quantity)
+        public async Task DeleteProduct(int id)
         {
             using (var conn = new SqlConnection())
             {
                 conn.ConnectionString = cs;
                 conn.Open();
 
-                string query = $@" INSERT INTO Products([Name],[Price],[Quantity])
-                                VALUES(@name,@price,@quantity)";
-                
+                SqlTransaction sqlTransaction = null;
+
+                var query = "DELETE FROM Products WHERE Id=@id";
+
                 SqlCommand command = conn.CreateCommand();
                 command.CommandText = query;
+
+                sqlTransaction = conn.BeginTransaction();
+
+
+                command.Transaction = sqlTransaction;
+
+                SqlParameter parameterName = new SqlParameter();
+                parameterName.ParameterName = "@id";
+                parameterName.SqlDbType = SqlDbType.Int;
+                parameterName.Value = id;
+
+                command.Parameters.Add(parameterName);
+
+                try
+                {
+                    await command.ExecuteNonQueryAsync();
+                    sqlTransaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex.Message}");
+                    sqlTransaction.Rollback();
+                }
+            }
+        }
+
+        public async void Insert(string name, decimal price, int quantity,Category category)
+        {
+            using (var conn = new SqlConnection())
+            {
+                conn.ConnectionString = cs;
+                conn.Open();
+
+                string query = $@" INSERT INTO Products([CategoryId],[Name],[Price],[Quantity])
+                                VALUES(@categoryId,@name,@price,@quantity)";
+
+                SqlCommand command = conn.CreateCommand();
+                command.CommandText = query;
+
+                var paramCategoryId = new SqlParameter();
+                paramCategoryId.ParameterName = "@categoryId";
+                paramCategoryId.SqlDbType = SqlDbType.Int;
+                paramCategoryId.Value = category.Id;
 
                 var paramName = new SqlParameter();
                 paramName.ParameterName = "@name";
@@ -113,6 +154,7 @@ namespace Store.Repostiory
                 paramQuantity.SqlDbType = SqlDbType.Int;
                 paramQuantity.Value = quantity;
 
+                command.Parameters.Add(paramCategoryId);
                 command.Parameters.Add(paramName);
                 command.Parameters.Add(paramPrice);
                 command.Parameters.Add(paramQuantity);

@@ -25,7 +25,6 @@ namespace Store
         {
             InitializeComponent();
             App.MyGrid = MyGrid1;
-            App.MyWrapPanel = MyWrapPanel1;
             var vm = new MainViewModel();
             this.DataContext = vm;
         }

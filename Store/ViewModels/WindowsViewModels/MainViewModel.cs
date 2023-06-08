@@ -17,6 +17,8 @@ namespace Store.ViewModels.WindowsViewModels
     public class MainViewModel : BaseViewModels
     {
         public RelayCommand InsertCommand { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand SelectionChanged { get; set; }
 
         private ObservableCollection<Product> allProducts;
 
@@ -35,6 +37,14 @@ namespace Store.ViewModels.WindowsViewModels
         }
 
 
+        private Category selectedItem;
+
+        public Category SelectedItem
+        {
+            get { return selectedItem; }
+            set { selectedItem = value; OnPropertyChanged(); }
+        }
+
         public Repo ProductsRepo { get; set; }
 
         public async Task GetAllCategories()
@@ -47,21 +57,9 @@ namespace Store.ViewModels.WindowsViewModels
             await ProductsRepo.GetAllProduct(AllProducts);
         }
 
-        public async void CallCategoryUC()
+        public async void CallCategory()
         {
             await GetAllCategories();
-
-            App.MyWrapPanel.Children.Clear();
-            CategoriesUC categoriesUC;
-            CategoryUcViewModel categoryUcViewModel;
-            for (int i = 0; i < AllCategories.Count; i++)
-            {
-                categoriesUC = new CategoriesUC();
-                categoryUcViewModel = new CategoryUcViewModel();
-                categoryUcViewModel.CategoryName = AllCategories[i].Name;
-                categoriesUC.DataContext = categoryUcViewModel;
-                App.MyWrapPanel.Children.Add(categoriesUC);
-            }
         }
 
         public async void CallProductUC()
@@ -84,6 +82,8 @@ namespace Store.ViewModels.WindowsViewModels
             }
         }
 
+
+
         public MainViewModel()
         {
             AllProducts = new ObservableCollection<Product>();
@@ -91,7 +91,7 @@ namespace Store.ViewModels.WindowsViewModels
             ProductsRepo = new Repo();
 
             CallProductUC();
-            CallCategoryUC();
+            CallCategory();
 
             InsertCommand = new RelayCommand((obj) =>
             {
@@ -101,6 +101,35 @@ namespace Store.ViewModels.WindowsViewModels
                 App.MyGrid.Children.Add(insertUC);
             });
 
+            DeleteCommand = new RelayCommand((obj) =>
+            {
+                DeleteUC deleteUC = new DeleteUC();
+                DeleteViewModel deleteUCVM = new DeleteViewModel();
+                App.MyGrid.Children.Clear();
+                App.MyGrid.Children.Add(deleteUC);
+            });
+            
+
+            SelectionChanged = new RelayCommand((obj) =>
+            {
+                App.MyGrid.Children.Clear();
+                ProductUC productUC;
+                ProductsViewModel productsViewModel;
+                for (int i = 0; i < AllProducts.Count; i++)
+                {
+                    if (AllProducts[i].CategoryId == SelectedItem.Id)
+                    {
+                        productUC = new ProductUC();
+                        productsViewModel = new ProductsViewModel();
+                        productsViewModel.ProductName = AllProducts[i].Name;
+                        productsViewModel.ProductPrice = $"{AllProducts[i].Price} $";
+                        productsViewModel.ProductQuantity = AllProducts[i].Quantity;
+                        productsViewModel.ImagePath = AllProducts[i].ImagePath;
+                        productUC.DataContext = productsViewModel;
+                        App.MyGrid.Children.Add(productUC);
+                    }
+                }
+            });
         }
     }
 }

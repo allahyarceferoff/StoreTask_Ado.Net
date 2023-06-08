@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.ViewModels.UCViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,15 @@ using System.Windows.Shapes;
 namespace Store.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for CategoriesUC.xaml
+    /// Interaction logic for DeleteUC.xaml
     /// </summary>
-    public partial class CategoriesUC : UserControl
+    public partial class DeleteUC : UserControl
     {
-        public CategoriesUC()
+        public DeleteUC()
         {
             InitializeComponent();
+            var vm=new DeleteViewModel();
+            this.DataContext = vm;
         }
     }
 }

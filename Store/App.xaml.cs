@@ -15,6 +15,5 @@ namespace Store
     public partial class App : Application
     {
         public static WrapPanel MyGrid { get; set; } = new WrapPanel();
-        public static WrapPanel MyWrapPanel { get; set; } = new WrapPanel();
     }
 }
