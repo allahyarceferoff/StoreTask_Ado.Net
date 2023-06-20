@@ -137,8 +137,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\Logo.jpg" />
-    <Content Include="StoreDB.sql" />
+    <Resource Include="Images\umico.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -4,17 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Store.Views.UserControls"
-             mc:Ignorable="d" Height="335" Width="235" Margin="20,10,0,0">
+             mc:Ignorable="d" Height="335" Width="335" Margin="20,10,0,0">
     <Grid Margin="0,0,29,38">
-        <Border Background="WhiteSmoke" CornerRadius="15"></Border>
-        <Canvas  Margin="19,23,19,19">
-            <Border Background="White" CornerRadius="15" Height="255" Width="168"></Border>
+        <Border Background="WhiteSmoke" CornerRadius="205" Margin="-36,0,0,-19" HorizontalAlignment="Left" Width="342"></Border>
+        <Canvas  Margin="69,23,19,19">
+            <Border Background="LightBlue" CornerRadius="125" Height="300" Width="300" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="-82" Canvas.Top="-15"></Border>
             <Image Source="{Binding ImagePath}" Height="109" Width="140" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="14" Canvas.Top="10"/>
-            <Label FontSize="25" Content="{Binding ProductName}" Canvas.Left="14" Canvas.Top="128" HorizontalAlignment="Left" VerticalAlignment="Center" Width="114" Height="46" ></Label>
-            <Label FontSize="20" Content="{Binding ProductPrice}" Canvas.Left="105" Canvas.Top="175" HorizontalAlignment="Left" VerticalAlignment="Center" Width="47" Height="32" ></Label>
-            <Label FontSize="15" Content="{Binding ProductQuantity}" Canvas.Left="73" Canvas.Top="220" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="26" ></Label>
-            <Label FontSize="10" Content="Count :" Canvas.Left="38" Canvas.Top="224" HorizontalAlignment="Center" VerticalAlignment="Top" Width="46" Height="21" ></Label>
-            <Label FontSize="16" Content="₼" Canvas.Left="145" Canvas.Top="179" HorizontalAlignment="Left" VerticalAlignment="Center" Width="31" Height="30" ></Label>
+            <Label FontSize="15" Content="{Binding ProductName}" Foreground="Red"   Canvas.Left="-44" Canvas.Top="128" HorizontalAlignment="Left" VerticalAlignment="Center" Width="252" Height="38" ></Label>
+            <Label FontSize="20" Content="{Binding ProductPrice}" Canvas.Left="15" Canvas.Top="216" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" Height="39" RenderTransformOrigin="0.779,-0.27" ></Label>
+            <Label FontSize="15" Content="{Binding ProductQuantity}" Canvas.Left="72" Canvas.Top="166" HorizontalAlignment="Left" VerticalAlignment="Top" Width="61" Height="26" RenderTransformOrigin="1.044,-0.789" ></Label>
+            <Label FontSize="10" Content="Count :" Canvas.Left="26" Canvas.Top="172" HorizontalAlignment="Center" VerticalAlignment="Top" Width="46" Height="25" RenderTransformOrigin="0.176,0.554" ></Label>
+            <!--<Label FontSize="16" Content="AZN" Canvas.Left="93" Canvas.Top="226" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" RenderTransformOrigin="1.124,0.167" ></Label>-->
         </Canvas>
 
     </Grid>
